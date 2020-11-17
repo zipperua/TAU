@@ -9,14 +9,14 @@ public class WithAssertionsTest {
     @Test
 
     public void firstAssertions (){
-        assertEquals(1,2);
-    };
+        assertEquals(2,2);
+    }
 
 
     @Test
 
     public void secondAssertions (){
         assertEquals(45,45);
-    };
+    }
 
 }

@@ -13,13 +13,13 @@ import static org.junit.jupiter.api.TestInstance.Lifecycle.PER_CLASS;
 @TestInstance(PER_CLASS)
 
 public class WithConfigurationTest {
-    private BrowserGetter browserGetter = new BrowserGetter();
+    private final BrowserGetter browserGetter = new BrowserGetter();
     private WebDriver driver;
 
 
     @BeforeAll
     public void beforeAll(){
-    driver = browserGetter.getChromeDriver();
+    driver = browserGetter.getDriver();
     }
 
     @AfterAll
@@ -29,7 +29,7 @@ public class WithConfigurationTest {
 
     @Test
     public void justATest(){
-        driver.get("http://wwww.example.com");
-        assertEquals("Example domain",driver.getTitle());
+        driver.get("http://www.example.org");
+        assertEquals("Example Domain",driver.getTitle());
 }
 }

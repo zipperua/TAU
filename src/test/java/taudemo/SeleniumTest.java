@@ -1,6 +1,5 @@
 package taudemo;
 
-
 import org.junit.jupiter.api.AfterAll;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
@@ -14,12 +13,12 @@ import static org.junit.jupiter.api.TestInstance.Lifecycle.PER_CLASS;
 @TestInstance(PER_CLASS)
 
 public class SeleniumTest {
-    private BrowserGetter browserGetter = new BrowserGetter();
+    private final BrowserGetter browserGetter = new BrowserGetter();
     private WebDriver driver;
 
        @BeforeAll
     public void beforeAll(){
-    driver = browserGetter.getChromeDriver();
+    driver = browserGetter.getDriver();
         }
 
     @AfterAll
@@ -28,10 +27,17 @@ public class SeleniumTest {
     }
 
     @Test
-    public void openThePageAndCheckTheTitle(){
-    String expectedTitle = "Example Title";
-    driver.get("http://wwww.example.com");
-    assertEquals(expectedTitle,driver.getTitle());
+    public void openTheComAndCheckTheTitle(){
+    String expectedComTitle = "Example Domain";
+    driver.get("http://www.example.com");
+    assertEquals(expectedComTitle,driver.getTitle());
+    }
+
+    @Test
+    public void openTheOrgPageAndCheckTheTitle(){
+        String expectedOrgTitle = "Example Domain";
+        driver.get("http://www.example.org");
+        assertEquals(expectedOrgTitle,driver.getTitle());
     }
 }
 
